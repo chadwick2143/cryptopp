@@ -92,7 +92,7 @@ public:
 			/// \brief a number with no special properties
 			ANY,
 			/// \brief a number which is probabilistically prime
-			PRIME};
+            RNTPRIME};
 	//@}
 
 	/// \name CREATORS
@@ -480,7 +480,7 @@ public:
 		/// <pre>
 		///     AutoSeededRandomPool prng;
 		///     AlgorithmParameters params = MakeParameters("BitLength", 2048)
-		///                                                ("RandomNumberType", Integer::PRIME);
+		///                                                ("RandomNumberType", Integer::RNTPRIME);
 		///     Integer x;
 		///     if (x.GenerateRandomNoThrow(prng, params) == false)
 		///         throw std::runtime_error("Failed to generate prime number");
@@ -498,7 +498,7 @@ public:
 		/// <pre>
 		///     AutoSeededRandomPool prng;
 		///     AlgorithmParameters params = MakeParameters("BitLength", 2048)
-		///                                                ("RandomNumberType", Integer::PRIME);
+		///                                                ("RandomNumberType", Integer::RNTPRIME);
 		///     Integer x;
 		///     try { x.GenerateRandom(prng, params); }
 		///     catch (RandomNumberNotFound&) { x = -1; }

@@ -280,7 +280,7 @@ AlgorithmParameters MakeParametersForTwoPrimesOfEqualSize(unsigned int productBi
 		maxP = Integer(181) << ((productBitLength+1)/2-8);
 	}
 
-	return MakeParameters("RandomNumberType", Integer::PRIME)("Min", minP)("Max", maxP);
+	return MakeParameters("RandomNumberType", Integer::RNTPRIME)("Min", minP)("Max", maxP);
 }
 
 class PrimeSieve
@@ -476,7 +476,7 @@ Integer MihailescuProvablePrime(RandomNumberGenerator &rng, unsigned int pbits)
 	if (maxP <= Integer(s_lastSmallPrime).Squared())
 	{
 		// Randomize() will generate a prime provable by trial division
-		p.Randomize(rng, minP, maxP, Integer::PRIME);
+		p.Randomize(rng, minP, maxP, Integer::RNTPRIME);
 		return p;
 	}
 
@@ -1108,8 +1108,8 @@ void PrimeAndGenerator::Generate(signed int delta, RandomNumberGenerator &rng, u
 
 		do
 		{
-			q.Randomize(rng, minQ, maxQ, Integer::PRIME);
-		} while (!p.Randomize(rng, minP, maxP, Integer::PRIME, delta%q, q));
+			q.Randomize(rng, minQ, maxQ, Integer::RNTPRIME);
+		} while (!p.Randomize(rng, minP, maxP, Integer::RNTPRIME, delta%q, q));
 
 		// find a random g of order q
 		if (delta==1)

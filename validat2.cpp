@@ -808,7 +808,7 @@ bool TestIntegerOps()
 
     try {
         // A run of 71 composites; see http://en.wikipedia.org/wiki/Prime_gap
-        Integer x = Integer(GlobalRNG(), 31398, 31468, Integer::PRIME);
+        Integer x = Integer(GlobalRNG(), 31398, 31468, Integer::RNTPRIME);
         result=false;
     } catch (const Exception&) {
         result=true;
@@ -898,7 +898,7 @@ bool TestIntegerOps()
                 case 0:
                 {
                     AlgorithmParameters params =
-                        MakeParameters("BitLength", 256)("RandomNumberType", Integer::PRIME);
+                        MakeParameters("BitLength", 256)("RandomNumberType", Integer::RNTPRIME);
                     x.GenerateRandom(prng, params);
                     y.GenerateRandom(prng, params);
                     break;

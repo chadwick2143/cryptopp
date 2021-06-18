@@ -36,13 +36,13 @@ top:
 	Integer r1, r2;
 	do
 	{
-		(void)q.Randomize(rng, minQ, maxQ, Integer::PRIME, 7, 12);
+		(void)q.Randomize(rng, minQ, maxQ, Integer::RNTPRIME, 7, 12);
 		// Solution always exists because q === 7 mod 12.
 		(void)SolveModularQuadraticEquation(r1, r2, 1, -1, 1, q);
 		// I believe k_i, r1 and r2 are being used slightly different than the
 		// paper's algorithm. I believe it is leading to the failed asserts.
 		// Just make the assert part of the condition.
-		if(!p.Randomize(rng, minP, maxP, Integer::PRIME, CRT(rng.GenerateBit() ?
+		if(!p.Randomize(rng, minP, maxP, Integer::RNTPRIME, CRT(rng.GenerateBit() ?
 			r1 : r2, q, 2, 3, EuclideanMultiplicativeInverse(p, 3)), 3 * q)) { continue; }
 	} while (((p % 3U) != 2) || (((p.Squared() - p + 1) % q).NotZero()));
 

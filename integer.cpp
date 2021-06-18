@@ -3624,7 +3624,7 @@ bool Integer::GenerateRandomNoThrow(RandomNumberGenerator &i_rng, const NameValu
 			}
 			return true;
 
-		case PRIME:
+		case RNTPRIME:
 		{
 			const PrimeSelector *pSelector = params.GetValueWithDefault(Name::PointerToPrimeSelector(), (const PrimeSelector *)NULLPTR);
 
